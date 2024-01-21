@@ -23,4 +23,4 @@ world_the_end
 client
 .cpcache
 .DS_Store
-.devcontainer/data
+.devcontainer/data/**
