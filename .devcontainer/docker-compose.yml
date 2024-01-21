@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/base:alpine-3.19
+    volumes:
+      - ../..:/workspaces:cached
+    network_mode: service:mcs
+    command: sleep infinity
+  mcs:
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+    volumes:
+      # attach the relative directory 'data' to the container's /data path
+      - ./data:/data
